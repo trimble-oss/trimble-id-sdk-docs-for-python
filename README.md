@@ -92,6 +92,7 @@ token_provider = ClientCredentialTokenProvider(endpoint_provider, "client_id", "
 
 access_token = await token_provider.retrieve_token()
 ```
+
 ## Validate Claimset Provider
 
 Provides the validated claimset for a JSON web token.
@@ -108,7 +109,6 @@ claimsetProvider = ValidatedClaimsetProvider(keyset_provider)
 
 claimset = await claimsetProvider.retrieve_claimset(access_token)
 ```
-Provides the validated claimset for a JSON web token
 
 > **_NOTE:_** Refer samples for better understanding.
 
