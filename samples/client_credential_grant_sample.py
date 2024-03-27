@@ -1,9 +1,6 @@
 import asyncio
 
-from trimble.id.client_credential_token_provider import ClientCredentialTokenProvider
-from trimble.id.validated_claimset_provider import ValidatedClaimsetProvider
-from trimble.id.open_id_keyset_provider import OpenIdKeySetProvider
-from trimble.id.open_id_endpoint_provider import OpenIdEndpointProvider
+from trimble.id import ClientCredentialTokenProvider, ValidatedClaimsetProvider, OpenIdKeySetProvider, OpenIdEndpointProvider
 
 endpoint_provider = OpenIdEndpointProvider("<OPENID_CONFIGURATION_URL>")
 
