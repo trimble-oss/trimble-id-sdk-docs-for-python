@@ -61,7 +61,7 @@ This endpoint provider is used to retrieve the endpoints from a well-known URL e
 
 ### Usage
 ```python
-from trimble.id.open_id_endpoint_provider import OpenIdEndpointProvider
+from trimble.id import OpenIdEndpointProvider
 
 endpoint_provider = OpenIdEndpointProvider("https://id.trimble.com/.well-known/openid-configuration")
 auth_endpoint = await endpoint_provider.retrieve_authorization_endpoint()
@@ -74,7 +74,7 @@ This endpoint provider is used to provide a fixed set of endpoints.
 
 ### Usage
 ```python
-from trimble.id.fixed_endpoint_provider import FixedEndpointProvider
+from trimble.id import FixedEndpointProvider
 
 endpoint_provider = FixedEndpointProvider("https://authorization.url", "https://token.url", "https://userinfo.url")
 endpoint = await endpoint_provider.retrieve_authorization_endpoint()
@@ -86,11 +86,26 @@ This token provider is used to retrieve an access token using the client credent
 
 ### Usage
 ```python
-from trimble.id.client_credential_token_provider import ClientCredentialTokenProvider
+from trimble.id import ClientCredentialTokenProvider
 
 token_provider = ClientCredentialTokenProvider(endpoint_provider, "client_id", "client_secret").with_scopes(["scope"])
 
 access_token = await token_provider.retrieve_token()
+```
+
+## Validate Claimset Provider
+
+Provides the validated claimset for a JSON web token.
+
+### Usage
+```python
+from trimble.id import ValidatedClaimsetProvider, OpenIdKeySetProvider
+
+keyset_provider = OpenIdKeySetProvider(endpoint_provider)
+    
+claimsetProvider = ValidatedClaimsetProvider(keyset_provider)
+
+claimset = await claimsetProvider.retrieve_claimset(access_token)
 ```
 
 > **_NOTE:_** Refer samples for better understanding.
