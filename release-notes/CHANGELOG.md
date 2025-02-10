@@ -1,5 +1,5 @@
 ## 0.1.1 (2025-01-31)
-- Removed all analytics calls
+- Performace improvements
 
 # 0.0.2 (2024-02-28)
 - Simplified the import module names
