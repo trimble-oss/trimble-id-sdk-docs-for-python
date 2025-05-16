@@ -1,3 +1,6 @@
+# 0.1.1 (2025-01-31)
+- performance issue fixes
+
 # 0.0.2 (2024-02-28)
 - Simplified the import module names
 - Improved analytics tracking and included the application id in event tracking
